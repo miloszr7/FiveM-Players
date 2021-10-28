@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:td="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <script src="https://use.fontawesome.com/615c6d64ea.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="../static/css/dashboard.css" th:href="@{/css/dashboard.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="header">
+    <span class="title" th:text="${serverName}">unknown</span>
+</div>
+
+<div class="content"></div>
+
+<div class="top-search">
+
+    <form action="#" th:action="${endpoint}" th:object="${Query}" method="get">
+        <input type="text" name="query" placeholder="Username" class="input">
+        <input type="submit" value="Search" class="submit">
+    </form>
+
+</div>
+
+<div class="main">
+
+    <span class="dashboard-info">
+
+	  <h2> Endpoint: <span class="dashboard-count" th:text="${endpoint}">unknown</span> </h2>
+      <h2> Currently: <span class="dashboard-count" th:text="${totalPlayers} + '/' + ${maxPlayers}">0</span> online </h2>
+
+    </span>
+
+    <table>
+        <tr>
+            <th:block th:each="player : ${players}">
+                    <td th:text="'(' + ${player.id} + ') ' + ${player.name}"><i class="fas fa-user"></i></td>
+            </th:block>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

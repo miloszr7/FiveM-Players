@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:td="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <script src="https://use.fontawesome.com/615c6d64ea.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="../static/css/dashboard.css" th:href="@{/css/dashboard.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="header">
+    <span class="title" th:text="${serverName}">unknown server</span>
+</div>
+
+<div class="content">
+</div>
+
+<div class="dashboard">
+
+    <table>
+        <tr>
+            <th:block th:each="found : ${foundPlayers}">
+                    <td th:text="'(' + ${found.id} + ') ' + ${found.name}">...</td>
+            </th:block>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

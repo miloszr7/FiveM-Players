@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:td="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Display server info</title>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link href="../static/css/manage.css" th:href="@{/css/manage.css}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="manage.css">
+
+<script>
+  function openSlideMenu(){
+    document.getElementById('menu').style.width = '250px';
+    document.getElementById('content').style.marginLeft = '250px';
+  }
+  function closeSlideMenu(){
+    document.getElementById('menu').style.width = '0';
+    document.getElementById('content').style.marginLeft = '0';
+  }
+</script>
+</head>
+<body>
+
+  <div id="content">
+
+    <span class="slide">
+      <a href="#" onclick="openSlideMenu()">
+        <i class="fas fa-bars"></i>
+      </a>
+    </span>
+
+    <div id="menu" class="nav">
+      <a href="#" class="close" onclick="closeSlideMenu()">
+        <i class="fas fa-times"></i>
+      </a>
+      <a href="/fivem/dashboard">Dashboard</a>
+    </div>
+
+    
+
+  </div>
+
+  <div class="dashboard">
+
+    Display server information
+
+    <form action="dashboard" th:object="${FivemServer}" method="GET">
+      <input type="text" class="input" name="endpoint" placeholder="Server Endpoint" required>
+      <br><input type="submit" class="submit" value="Display" required>
+    </form>
+  
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
